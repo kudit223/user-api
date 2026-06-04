@@ -21,7 +21,13 @@ const userSchema = new mongoose.Schema({
         type:String,
         trim:true,
         required:true,
-        match:[/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/,"Invalid Password formate"]
+        match:[/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/,"Invalid Password formate"],
+        select:false
+    },
+    role:{
+        type:String,
+        enum:['admin','user'],
+        default:'user'
     }
 },{timestamps:true});
 
