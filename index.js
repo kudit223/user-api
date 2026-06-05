@@ -1,13 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
-const userRotues = require('./routes/userRoutes')
+const userRotues = require('./routes/userRoutes');
+const cookieParser = require('cookie-parser');
+
 
 //express app
 const app = express();
 
 //middleware
 app.use(express.json());
+app.use(cookieParser());
 app.use('/api',userRotues)
 
 //mongoDB configuration
